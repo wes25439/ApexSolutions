@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="prodTitle">Product – APEKS Supplies</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <img src="images/products/logo.jpeg" alt="APEKS Supplies Logo" class="logo-img">
+          <div class="brand-text">
+            <strong>APEKS SUPPLIES</strong>
+            <small>Quality you can trust</small>
+          </div>
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="navlinks" id="mainNav" aria-label="Main">
+          <a href="#categories">Categories</a>
+          <a href="#featured">Featured</a>
+          <a href="#quote">Request Quote</a>
+        </nav>
+
+        <div class="actions">
+          <button class="icon-btn cart-btn" title="Cart" aria-label="View cart">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14h9.9c.8 0 1.5-.5 1.8-1.2l2.7-6.2a1 1 0 00-.9-1.4H6.2L5.8 3.8A1 1 0 004.8 3H2v2h2.1l2.2 10.2A2 2 0 007.2 14z"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="cta" data-action="whatsapp-quote">Get a Quote</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <a href="#" id="catLink">Category</a>
+          <span>›</span>
+          <span id="prodName">Product</span>
+        </nav>
+
+        <div class="product-detail-grid">
+          <div class="prod-image">
+            <img id="prodImg" src="" alt="">
+          </div>
+          <div class="prod-info">
+            <h1 id="prodTitleBig"></h1>
+            <p id="prodDesc"></p>
+            <div class="price-big" id="prodPrice"></div>
+            <div style="margin:24px 0;">
+              <button class="btn primary large" id="addCartBtn">Add to Cart</button>
+              <button class="btn soft large" id="quoteBtn">Request Quote via WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> APEKS Supplies • Built for comfort and trust.</div>
+        <div class="foot-links">
+          <a href="index.html#categories">Categories</a>
+          <a href="index.html#featured">Featured</a>
+          <a href="index.html#quote">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const urlParams = new URLSearchParams(location.search);
+      const prodImage = urlParams.get('img');
+      const prodName  = urlParams.get('name') || 'Product';
+      const prodDesc  = urlParams.get('desc') || '';
+      const prodPrice = urlParams.get('price') || '0';
+      const catId     = urlParams.get('cat');
+
+      document.getElementById('prodTitle').textContent = prodName + " – APEKS Supplies";
+      document.getElementById('prodTitleBig').textContent = prodName;
+      document.getElementById('prodDesc').textContent = prodDesc;
+      document.getElementById('prodPrice').innerHTML = formatCurrency(Number(prodPrice));
+
+      if (prodImage) {
+        document.getElementById('prodImg').src = prodImage;
+      }
+
+      if (catId) {
+        const catLink = document.getElementById('catLink');
+        catLink.href = `category.html?id=${catId}`;
+        let cat = null;
+        for (let tab in categories) {
+          cat = categories[tab].find(c => c.id === catId);
+          if (cat) {
+            catLink.textContent = cat.title;
+            break;
+          }
+        }
+      }
+
+      document.getElementById('addCartBtn').addEventListener('click', () => {
+        addToCart({name: prodName, price: Number(prodPrice), image: prodImage || ''});
+        alert("Added to cart!");
+      });
+
+      document.getElementById('quoteBtn').addEventListener('click', () => {
+        const msg = encodeURIComponent(`Hello APEKS, I would like a quote for:\n${prodName}\nPrice: ${prodPrice}\nLink: ${location.href}`);
+        window.open(`https://wa.me/254757721045?text=${msg}`, '_blank');
+      });
+
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>

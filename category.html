@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="pageTitle">Category – APEKS Supplies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <img src="images/products/logo.jpeg" alt="APEKS Supplies Logo" class="logo-img">
+          <div class="brand-text">
+            <strong>APEKS SUPPLIES</strong>
+            <small>Quality you can trust</small>
+          </div>
+        </a>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="navlinks" id="mainNav" aria-label="Main navigation">
+          <a href="index.html#categories">Categories</a>
+          <a href="index.html#featured">Featured</a>
+          <a href="index.html#quote">Request Quote</a>
+        </nav>
+
+        <div class="actions">
+          <button class="icon-btn cart-btn" title="View Cart" aria-label="View shopping cart">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14h9.9c.8 0 1.5-.5 1.8-1.2l2.7-6.2a1 1 0 00-.9-1.4H6.2L5.8 3.8A1 1 0 004.8 3H2v2h2.1l2.2 10.2A2 2 0 007.2 14z"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="cta" data-action="whatsapp-quote">Get a Quote</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding: 24px 0 16px;">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <span id="currentCategoryName" class="current">Category</span>
+        </nav>
+
+        <a href="index.html#categories" class="back-btn" aria-label="Return to all categories">
+          ← Back to Categories
+        </a>
+
+        <h1 id="categoryTitle">Loading...</h1>
+        <p id="categoryDesc" class="category-description">...</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="pgrid" id="pgrid"></div>
+      </div>
+    </section>
+
+    <section id="quote" class="section">
+      <div class="container">
+        <div class="band">
+          <div>
+            <h3>Request a quote in minutes</h3>
+            <p>Tell us: category + quantity + delivery location. We'll reply with pricing and timelines.</p>
+          </div>
+          <div class="band-actions">
+            <a class="btn primary whatsapp-btn"
+               href="https://wa.me/254757721045?text=Hello%20APEKS%2C%20I%20would%20like%20a%20quote%20for..."
+               target="_blank" rel="noopener noreferrer">
+              WhatsApp Quote
+            </a>
+            <a class="btn soft" href="mailto:info@apekssupplies.co.ke?subject=APEKS%20Quote%20Request">
+              Email for Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> APEKS Supplies • Built for comfort and trust.</div>
+        <div class="foot-links">
+          <a href="index.html#categories">Categories</a>
+          <a href="index.html#featured">Featured</a>
+          <a href="index.html#quote">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="quickview-overlay" id="quickviewOverlay">
+    <div class="quickview-content">
+      <button class="quickview-close" id="quickviewClose" aria-label="Close preview">×</button>
+      <img id="quickviewImage" src="" alt="Product preview">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoryId = urlParams.get('id');
+
+      if (!categoryId) {
+        document.getElementById('categoryTitle').textContent = "Category not found";
+        document.getElementById('pgrid').innerHTML = `
+          <div style="grid-column: span 4; text-align:center; padding:80px 20px; color:var(--muted);">
+            <h2>Invalid category</h2>
+            <p>Please go back and select a valid category.</p>
+            <a href="index.html" class="btn primary" style="margin-top:24px;">Return to Home</a>
+          </div>
+        `;
+        return;
+      }
+
+      let category = null;
+      for (const tab in categories) {
+        category = categories[tab].find(c => c.id === categoryId);
+        if (category) break;
+      }
+
+      if (!category) {
+        document.getElementById('categoryTitle').textContent = "Category not found";
+        return;
+      }
+
+      document.title = `${category.title} — APEKS Supplies`;
+      document.getElementById('currentCategoryName').textContent = category.title;
+      document.getElementById('categoryTitle').textContent = category.title;
+      document.getElementById('categoryDesc').textContent = category.desc;
+
+      const filtered = products.filter(p => p.categoryId === categoryId);
+      const grid = document.getElementById('pgrid');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: span 4; text-align:center; padding:80px 20px; color:var(--muted);">
+            <div style="font-size:5rem; opacity:0.4; margin-bottom:16px;">📦</div>
+            <h3>No products in this category yet</h3>
+            <p>We're regularly adding new items. Please check back soon or send us your requirements.</p>
+            <a href="https://wa.me/254757721045?text=Hello%20APEKS%2C%20please%20send%20me%20information%20about%20${encodeURIComponent(category.title)}" 
+               class="btn primary whatsapp-btn" target="_blank" style="margin-top:24px;">
+              Ask on WhatsApp
+            </a>
+          </div>
+        `;
+      } else {
+        grid.innerHTML = filtered.map(p => {
+          const imgSrc = p.image ? getImagePath(p.image) : '';
+          const hasPrice = p.price > 0;
+
+          let detailUrl = `product.html?name=${encodeURIComponent(p.name)}&desc=${encodeURIComponent(p.desc)}&price=${p.price || 0}`;
+          if (p.image) detailUrl += `&img=${encodeURIComponent(imgSrc)}`;
+          detailUrl += `&cat=${encodeURIComponent(categoryId)}`;
+
+          return `
+            <article class="pcard" data-group="${p.group}" data-category-id="${p.categoryId}">
+              <a href="${detailUrl}" class="pcard-link">
+                <div class="pimg">
+                  ${imgSrc ? `<img src="${imgSrc}" alt="${p.name}" loading="lazy">` : '<div class="no-image">No image</div>'}
+                </div>
+              </a>
+              <div class="pbody">
+                <h3 class="ptitle">${p.name}</h3>
+                <p class="pdesc">${p.desc}</p>
+                <div class="price-row">
+                  <div class="price">
+                    ${formatCurrency(p.price)}
+                    ${p.old ? `<span class="old">${formatCurrency(p.old)}</span>` : ''}
+                  </div>
+                  <span class="stock">${p.stock ? "In stock" : "Made to order"}</span>
+                </div>
+                <div class="pactions">
+                  <button class="pbtn primary" data-action="${hasPrice ? 'add-to-cart' : 'request-quote'}" 
+                          data-product-name="${p.name}" data-product-price="${p.price || 0}">
+                    ${hasPrice ? "Add to cart" : "Request quote"}
+                  </button>
+                  <button class="pbtn ghost quickview-btn" title="Quick view" aria-label="Quick view ${p.name}">👁️</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+         attachAddToCartListeners();
+        attachCardListeners();
+      }
+
+      initSharedFeatures();
+    });
+  </script>
+</body>
+</html>

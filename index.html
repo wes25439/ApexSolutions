@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="School furniture, lab installations, and chemical supplies in Kenya." />
+  <title>APEKS Supplies — School, Lab & Chemicals</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="scrollProgress"></div>
+
+  <button id="accessibilityToggle" aria-label="Accessibility Options">♿</button>
+
+ <div id="accessibilityMenu">
+  <h3 style="color: #0f172a;">Accessibility Suite</h3>
+  <button onclick="toggleContrast()" style="background:#1e293b; color:white;">🌓 High Contrast</button>
+  <button onclick="changeTextSize(1)" style="background:#1e293b; color:white;">➕ Increase Text</button>
+  <button onclick="changeTextSize(-1)" style="background:#1e293b; color:white;">➖ Decrease Text</button>
+  <button onclick="toggleDyslexicFont()" style="background:#1e293b; color:white;">📖 Dyslexic Font</button>
+  <button onclick="resetAccessibility()" style="background:#1e293b; color:white;">🔄 Reset</button>
+</div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <img src="images/products/logo.jpeg" alt="APEKS Supplies Logo" class="logo-img">
+          <div class="brand-text">
+            <strong>APEKS SUPPLIES</strong>
+            <small>Quality you can trust</small>
+          </div>
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="navlinks" id="mainNav" aria-label="Main">
+          <a href="#categories">Categories</a>
+          <a href="#featured">Featured</a>
+          <a href="#quote">Request Quote</a>
+        </nav>
+
+        <div class="actions">
+          <button class="icon-btn cart-btn" title="View Cart" aria-label="View shopping cart">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.2 14h9.9c.8 0 1.5-.5 1.8-1.2l2.7-6.2a1 1 0 00-.9-1.4H6.2L5.8 3.8A1 1 0 004.8 3H2v2h2.1l2.2 10.2A2 2 0 007.2 14z"/>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="cta" data-action="whatsapp-quote">Get a Quote</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card reveal fade-left">
+            <div class="hero-inner">
+              <h1 class="reveal delay-2">
+                Everything you need to build a <span class="grad">modern school</span> and a <span class="grad">safe lab</span>.
+              </h1>
+              <p class="sub reveal delay-3">
+                Comfortable school furniture, professional laboratory installations, and trusted chemical supplies — all in one place. 
+                Clear pricing, quick quotes, and nationwide delivery.
+              </p>
+
+                            <div class="hero-actions reveal delay-4">
+                <a href="#featured" class="btn primary">Shop Featured</a>
+                <a href="#categories" class="btn soft">Browse Categories</a>
+              </div>
+
+              <div class="search reveal delay-5" role="search" aria-label="Search products">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 4a6 6 0 104.47 10.03l4.25 4.25 1.41-1.41-4.25-4.25A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z"></path>
+                </svg>
+                <input id="searchInput" placeholder="Search (desk, lecture chair, lab bench...)" aria-label="Search products" />
+                <button class="go" id="searchBtn">Search</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="side">
+            <div class="panel reveal fade-right delay-2">
+              <div class="kpis">
+                <div class="kpi">
+                  <strong>Fast Quotes</strong>
+                  <small>Same day response</small>
+                </div>
+                <div class="kpi">
+                  <strong>Nationwide</strong>
+                  <small>Delivery + setup</small>
+                </div>
+              </div>
+
+              <div class="checklist">
+                <div class="check">
+                  <div class="c">✓</div>
+                  <div>
+                    <strong>Comfort-first furniture</strong>
+                    <span>Strong frames, easy-clean surfaces.</span>
+                  </div>
+                </div>
+                <div class="check">
+                  <div class="c">✓</div>
+                  <div>
+                    <strong>Lab safety & compliance</strong>
+                    <span>Benches, sinks, and ventilation.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel reveal fade-right delay-4">
+              <div class="panel-title">Popular today</div>
+              <div class="popular-list">
+                <div class="check popular-item">
+                  <div class="c">★</div>
+                  <div>
+                    <strong>Student Desks</strong>
+                    <span>Single & double sets.</span>
+                  </div>
+                </div>
+                <div class="check popular-item lab-highlight">
+                  <div class="c">★</div>
+                  <div>
+                    <strong>Lab Installations</strong>
+                    <span>Gas taps and piping specialists.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Browse categories</h2>
+            <p>Click a category to see all matching products and services.</p>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Category tabs">
+            <button class="tab active" data-cat-tab="products" role="tab" aria-selected="true">Products</button>
+            <button class="tab" data-cat-tab="services" role="tab" aria-selected="false">Services</button>
+          </div>
+        </div>
+
+        <div class="cgrid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section id="featured" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Featured items</h2>
+            <p>Browse our most popular school, lab and chemical products.</p>
+          </div>
+
+          <div class="filters" role="tablist" aria-label="Product filters">
+            <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="chip" data-filter="school" role="tab" aria-selected="false">School</button>
+            <button class="chip" data-filter="lab" role="tab" aria-selected="false">Lab</button>
+            <button class="chip" data-filter="chem" role="tab" aria-selected="false">Chemicals</button>
+            <button class="chip" data-filter="services" role="tab" aria-selected="false">Services</button>
+          </div>
+        </div>
+
+        <div class="pgrid" id="pgrid"></div>
+      </div>
+    </section>
+
+    <section id="quote" class="section">
+      <div class="container">
+        <div class="band">
+          <div>
+            <h3>Request a quote in minutes</h3>
+            <p>Tell us: category + quantity + delivery location. We'll reply with pricing and timelines.</p>
+          </div>
+          <div class="band-actions">
+            <a class="btn primary" href="mailto:info@apekssupplies.co.ke?subject=APEKS%20Quote%20Request" 
+               aria-label="Email for quote">
+              Email for Quote
+            </a>
+            <a class="btn soft" href="https://wa.me/254757721045?text=Hello%20APEKS%2C%20I%20need%20a%20quote%20for..." 
+               target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+        <div class="booking-card">
+          <div class="booking-content">
+            <h2>Free Site Measurement & Consultation</h2>
+            <p>Planning a new lab or refurnishing a school? Our experts will come to your location anywhere in Kenya to take measurements and provide a floor plan.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+              <li>✅ Accurate 3D Measurements</li>
+              <li>✅ Safety Compliance Advice</li>
+              <li>✅ Bulk Pricing Discount</li>
+            </ul>
+          </div>
+          
+          <form class="booking-form" id="siteVisitForm">
+            <label>Service Needed</label>
+            <select id="visitType" required>
+              <option value="Lab Installation">Lab Installation</option>
+              <option value="School Furniture Setup">School Furniture Setup</option>
+              <option value="Chemical Supply Audit">Chemical Supply Audit</option>
+            </select>
+            <input type="text" id="visitLocation" placeholder="Location (e.g. Thika, Nairobi)" required>
+            <input type="date" id="visitDate" required>
+            <button type="submit" class="btn-whatsapp" style="border:none;">Book via WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="https://wa.me/254757721045" class="floating-wa" target="_blank" title="Chat with us">
+    <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> APEKS Supplies • Built for comfort and trust.</div>
+        <div class="foot-links">
+          <a href="#categories">Categories</a>
+          <a href="#featured">Featured</a>
+          <a href="#quote">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="quickview-overlay" id="quickviewOverlay">
+    <div class="quickview-content">
+      <div class="quickview-close" id="quickviewClose">×</div>
+      <img id="quickviewImage" src="" alt="">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
