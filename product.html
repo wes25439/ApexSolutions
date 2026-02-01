@@ -8,6 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <button id="accessibilityToggle" aria-label="Accessibility Options">♿</button>
+
+<div id="accessibilityMenu">
+  <h3 style="color: #0f172a;">Accessibility Suite</h3>
+  <button onclick="toggleContrast()" style="background:#1e293b; color:white;">🌓 High Contrast</button>
+  <button onclick="changeTextSize(1)" style="background:#1e293b; color:white;">➕ Increase Text</button>
+  <button onclick="changeTextSize(-1)" style="background:#1e293b; color:white;">➖ Decrease Text</button>
+  <button onclick="toggleDyslexicFont()" style="background:#1e293b; color:white;">📖 Dyslexic Font</button>
+  <button onclick="resetAccessibility()" style="background:#1e293b; color:white;">🔄 Reset</button>
+</div>
   <header>
     <div class="container">
       <div class="nav">
@@ -61,7 +71,14 @@
             <h1 id="prodTitleBig"></h1>
             <p id="prodDesc"></p>
             <div class="price-big" id="prodPrice"></div>
+            
             <div style="margin:24px 0;">
+              <div class="quantity-selector" style="margin-bottom: 16px;">
+                <button class="quantity-btn minus" id="minus-qty">-</button>
+                <input type="number" class="quantity-input" id="prod-qty" value="1" min="1" max="999">
+                <button class="quantity-btn plus" id="plus-qty">+</button>
+              </div>
+              
               <button class="btn primary large" id="addCartBtn">Add to Cart</button>
               <button class="btn soft large" id="quoteBtn">Request Quote via WhatsApp</button>
             </div>
@@ -118,13 +135,44 @@
         }
       }
 
+      // Quantity selector functionality for product page
+      const minusBtn = document.getElementById('minus-qty');
+      const plusBtn = document.getElementById('plus-qty');
+      const qtyInput = document.getElementById('prod-qty');
+      
+      minusBtn.addEventListener('click', () => {
+        let value = parseInt(qtyInput.value) || 1;
+        value = Math.max(value - 1, 1);
+        qtyInput.value = value;
+      });
+      
+      plusBtn.addEventListener('click', () => {
+        let value = parseInt(qtyInput.value) || 1;
+        value = Math.min(value + 1, 999);
+        qtyInput.value = value;
+      });
+      
+      qtyInput.addEventListener('change', () => {
+        let value = parseInt(qtyInput.value) || 1;
+        value = Math.max(1, Math.min(value, 999));
+        qtyInput.value = value;
+      });
+
       document.getElementById('addCartBtn').addEventListener('click', () => {
-        addToCart({name: prodName, price: Number(prodPrice), image: prodImage || ''});
-        alert("Added to cart!");
+        const quantity = parseInt(qtyInput.value) || 1;
+        
+        // Add multiple items based on quantity
+        for (let i = 0; i < quantity; i++) {
+          addToCart({name: prodName, price: Number(prodPrice), image: prodImage || ''});
+        }
+        
+        updateCartUI();
+        alert(`${quantity} ${quantity > 1 ? 'items' : 'item'} added to cart!`);
       });
 
       document.getElementById('quoteBtn').addEventListener('click', () => {
-        const msg = encodeURIComponent(`Hello APEKS, I would like a quote for:\n${prodName}\nPrice: ${prodPrice}\nLink: ${location.href}`);
+        const quantity = parseInt(qtyInput.value) || 1;
+        const msg = encodeURIComponent(`Hello APEKS, I would like a quote for:\n${prodName}\nQuantity: ${quantity}\nPrice: ${prodPrice}\nLink: ${location.href}`);
         window.open(`https://wa.me/254757721045?text=${msg}`, '_blank');
       });
 

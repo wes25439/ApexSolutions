@@ -10,7 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<button id="accessibilityToggle" aria-label="Accessibility Options">♿</button>
 
+<div id="accessibilityMenu">
+  <h3 style="color: #0f172a;">Accessibility Suite</h3>
+  <button onclick="toggleContrast()" style="background:#1e293b; color:white;">🌓 High Contrast</button>
+  <button onclick="changeTextSize(1)" style="background:#1e293b; color:white;">➕ Increase Text</button>
+  <button onclick="changeTextSize(-1)" style="background:#1e293b; color:white;">➖ Decrease Text</button>
+  <button onclick="toggleDyslexicFont()" style="background:#1e293b; color:white;">📖 Dyslexic Font</button>
+  <button onclick="resetAccessibility()" style="background:#1e293b; color:white;">🔄 Reset</button>
+</div>
   <header>
     <div class="container">
       <div class="nav">
@@ -91,18 +100,72 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="foot">
-        <div>© <span id="year"></span> APEKS Supplies • Built for comfort and trust.</div>
-        <div class="foot-links">
-          <a href="index.html#categories">Categories</a>
-          <a href="index.html#featured">Featured</a>
-          <a href="index.html#quote">Get a Quote</a>
+ <footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="images/products/logo.jpeg" alt="APEKS" class="logo-img">
+          <div class="brand-text">
+            <strong style="color: #fff;">APEKS SUPPLIES</strong>
+            <small>Quality you can trust</small>
+          </div>
+        </div>
+        <p class="footer-desc">
+          The leading supplier of school furniture, laboratory installations, and industrial chemicals in Kenya. Built for comfort, safety, and durability.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="WhatsApp">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+             <svg class="icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
         </div>
       </div>
+
+      <div class="footer-links">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="index.html#categories">School Furniture</a></li>
+          <li><a href="index.html#categories">Lab Installations</a></li>
+          <li><a href="index.html#categories">Chemical Supplies</a></li>
+          <li><a href="index.html#categories">Kindergarten</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="index.html#quote">Request Quote</a></li>
+          <li><a href="#">Delivery Info</a></li> 
+          <li><a href="#">Safety Audits</a></li>
+          <li><a href="#">Contact Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li>
+            <span>📞</span> <a href="tel:+254757721045">+254 757 721 045</a>
+          </li>
+          <li>
+            <span>📧</span> <a href="mailto:info@apekssupplies.co.ke">info@apekssupplies.co.ke</a>
+          </li>
+          <li>
+            <span>📍</span> Kariobangi,Light Industry
+          </li>
+        </ul>
+      </div>
     </div>
-  </footer>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> APEKS Supplies. Built for comfort and trust.</p>
+    </div>
+  </div>
+</footer>
 
   <div class="quickview-overlay" id="quickviewOverlay">
     <div class="quickview-content">
@@ -113,7 +176,7 @@
 
   <script src="script.js"></script>
 
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -148,63 +211,8 @@
       document.getElementById('categoryTitle').textContent = category.title;
       document.getElementById('categoryDesc').textContent = category.desc;
 
-      const filtered = products.filter(p => p.categoryId === categoryId);
-      const grid = document.getElementById('pgrid');
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div style="grid-column: span 4; text-align:center; padding:80px 20px; color:var(--muted);">
-            <div style="font-size:5rem; opacity:0.4; margin-bottom:16px;">📦</div>
-            <h3>No products in this category yet</h3>
-            <p>We're regularly adding new items. Please check back soon or send us your requirements.</p>
-            <a href="https://wa.me/254757721045?text=Hello%20APEKS%2C%20please%20send%20me%20information%20about%20${encodeURIComponent(category.title)}" 
-               class="btn primary whatsapp-btn" target="_blank" style="margin-top:24px;">
-              Ask on WhatsApp
-            </a>
-          </div>
-        `;
-      } else {
-        grid.innerHTML = filtered.map(p => {
-          const imgSrc = p.image ? getImagePath(p.image) : '';
-          const hasPrice = p.price > 0;
-
-          let detailUrl = `product.html?name=${encodeURIComponent(p.name)}&desc=${encodeURIComponent(p.desc)}&price=${p.price || 0}`;
-          if (p.image) detailUrl += `&img=${encodeURIComponent(imgSrc)}`;
-          detailUrl += `&cat=${encodeURIComponent(categoryId)}`;
-
-          return `
-            <article class="pcard" data-group="${p.group}" data-category-id="${p.categoryId}">
-              <a href="${detailUrl}" class="pcard-link">
-                <div class="pimg">
-                  ${imgSrc ? `<img src="${imgSrc}" alt="${p.name}" loading="lazy">` : '<div class="no-image">No image</div>'}
-                </div>
-              </a>
-              <div class="pbody">
-                <h3 class="ptitle">${p.name}</h3>
-                <p class="pdesc">${p.desc}</p>
-                <div class="price-row">
-                  <div class="price">
-                    ${formatCurrency(p.price)}
-                    ${p.old ? `<span class="old">${formatCurrency(p.old)}</span>` : ''}
-                  </div>
-                  <span class="stock">${p.stock ? "In stock" : "Made to order"}</span>
-                </div>
-                <div class="pactions">
-                  <button class="pbtn primary" data-action="${hasPrice ? 'add-to-cart' : 'request-quote'}" 
-                          data-product-name="${p.name}" data-product-price="${p.price || 0}">
-                    ${hasPrice ? "Add to cart" : "Request quote"}
-                  </button>
-                  <button class="pbtn ghost quickview-btn" title="Quick view" aria-label="Quick view ${p.name}">👁️</button>
-                </div>
-              </div>
-            </article>
-          `;
-        }).join('');
-         attachAddToCartListeners();
-        attachCardListeners();
-      }
-
-      initSharedFeatures();
+      // The product rendering and functionality will be handled by script.js
+      // No need to duplicate the logic here
     });
   </script>
 </body>
