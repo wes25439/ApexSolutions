@@ -2117,14 +2117,17 @@ header {
 }
 
 .pbtn.ghost {
-  width: 44px;
+  width: 36px;
+  height: 36px;
   background: rgba(15, 23, 42, 0.04);
   border: 1px solid var(--line);
   color: #0f172a;
   display: grid;
   place-items: center;
-  align-self: flex-start;
+  align-self: center;
   flex: 0 0 auto;
+    font-size: 0.8rem; /* Reduce font size of the eye emoji */
+
 }
 
 .pbtn.ghost:hover {
@@ -2132,6 +2135,9 @@ header {
   border-color: rgba(14, 165, 233, 0.25);
   color: var(--primary);
 }
+
+
+
 
 /* Responsive adjustments for mobile */
 @media (max-width: 480px) {
@@ -2146,7 +2152,10 @@ header {
   }
   
   .pbtn.ghost {
-    width: 100%;
-    margin-left: 8px;
+        width: 50px;
+    height: 50px;
+    margin-top: 8px; /* Add some top margin when stacked */
+    align-self: center; /* Ensure it's centered */
+
   }
 }
