@@ -33,11 +33,11 @@ const categories = {
 
 const products = [
   // SCHOOL ITEMS
-  { featured: true, group: "school", categoryId: "training-lecture-chairs", tag: "SCHOOL", off: "-10%", name: "Lecture Chair (Writing Arm)", desc: "Comfortable seating for lecture rooms.", price: 3750, old: 4500, stock: true, image: "lecture-chairs-kenya" },
-  { featured: true, group: "school", categoryId: "training-lecture-chairs", tag: "SCHOOL", off: "HOT", name: "Training Chair (Stackable)", desc: "Compact, easy to store for training halls.", price: 3200, old: 0, stock: true, image: "train-chairs" },
-  { featured: true, group: "school", categoryId: "single-desk-chair", tag: "SCHOOL", off: "-7%", name: "Single Student Desk & Chair", desc: "Strong steel frame, classroom-ready.", price: 5800, old: 6500, stock: true, image: "single-desk-and-chair" },
-  { featured: true, group: "school", categoryId: "double-desk-chair", tag: "SCHOOL", off: "-5%", name: "Double Student Desk & Chair", desc: "Space-saving twin desk for schools.", price: 6000, old: 6300, stock: true, image: "double-desks" },
-  { featured: true, group: "school", categoryId: "school-dining-tables", tag: "SCHOOL", off: "-8%", name: "School Dining Table (3×8)", desc: "Easy-clean top, built for daily use.", price: 16500, old: 17500, stock: true, image: "dining" },
+  { featured: true, group: "school", categoryId: "training-lecture-chairs", tag: "SCHOOL", off: "-10%", name: "Lecture Chair (Writing Arm)", desc: "Comfortable seating for lecture rooms.", price: 3000, old: 4500, stock: true, image: "lecture-chairs-kenya" },
+  { featured: true, group: "school", categoryId: "training-lecture-chairs", tag: "SCHOOL", off: "HOT", name: "Training Chair (Stackable)", desc: "Compact, easy to store for training halls.", price: 2500, old: 0, stock: true, image: "train-chairs" },
+  { featured: true, group: "school", categoryId: "single-desk-chair", tag: "SCHOOL", off: "-7%", name: "Single Student Desk & Chair", desc: "Strong steel frame, classroom-ready.", price: 4500, old: 6500, stock: true, image: "single-desk-and-chair" },
+  { featured: true, group: "school", categoryId: "double-desk-chair", tag: "SCHOOL", off: "-5%", name: "Double Student Desk & Chair", desc: "Space-saving twin desk for schools.", price: 5000, old: 6300, stock: true, image: "double-desks" },
+  { featured: true, group: "school", categoryId: "school-dining-tables", tag: "SCHOOL", off: "-8%", name: "School Dining Table (3×8)", desc: "Easy-clean top, built for daily use.", price: 26700, old: 17500, stock: true, image: "dining" },
   { featured: true, group: "school", categoryId: "kindergarten-furniture", tag: "KIDS", off: "-20%", name: "Kindergarten Chair (Ages 3–10)", desc: "Safe edges, bright-friendly finish.", price: 2000, old: 2500, stock: true, image: "kid-chair" },
   { featured: true, group: "school", categoryId: "kindergarten-furniture", tag: "KIDS", off: "NEW", name: "Kindergarten Table (Round)", desc: "Rounded corners for safer learning spaces.", price: 0, old: 0, stock: true, image: "kid-round" },
   { featured: true, group: "school", categoryId: "library-furniture", tag: "LIBRARY", off: "-1%", name: "Library Study Table (2 Way)", desc: "Perfect for reading bays & study areas.", price: 7400, old: 7500, stock: true, image: "twoway-study" },
@@ -56,12 +56,12 @@ const products = [
   { featured: true, group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "NEW", name: "Standard Reagents Bundle", desc: "Common reagents with packaging guidance.", price: 0, old: 0, stock: true, image: "starter-lab" },
   { featured: true, group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "Bulk Chemical Supply", desc: "Send your list — we'll quote and advise.", price: 0, old: 0, stock: true, image: "dionised-water" },
 
-  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "NEW", name: "Sodium Bi Carbonate", desc: "High grade Sodium Bi Carbonate.", price: 1800, old: 0, stock: true, image: "sodium-bycarbonate" },
-  { group: "chem", categoryId: "chemical-reagents", tag: "CHEM", off: "NEW", name: "sodium carbonate decahydrate", desc: "Pure sodium-carbonate-decahydrate.", price: 2500, old: 2800, stock: true, image: "sodium-carbonate-decahydrate" },
-  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "sodium hydroxyide", desc: "Industrial strength Sodium Hydroxide.", price: 3500, old: 0, stock: true, image: "sodium-hydroxyide" },
-  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "pottasium-nitrate", desc: "Pure pottasium-nitrate.", price: 4000, old: 0, stock: true, image: "pottasium-nitrate" },
-  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "copper sulphate pentahydrate", desc: "Pure copper sulphate pentahydrate.", price: 3000, old: 2500, stock: true, image: "copper-sulphate-pentahydrate" },
-  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "glyceryne", desc: "Pure glyceryne.", price: 3500, old: 0, stock: true, image: "glyceryne" },
+  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "NEW", name: "Sodium Bi Carbonate", desc: "High grade Sodium Bi Carbonate.", price: 0, old: 0, stock: true, image: "sodium-bycarbonate" },
+  { group: "chem", categoryId: "chemical-reagents", tag: "CHEM", off: "NEW", name: "sodium carbonate decahydrate", desc: "Pure sodium-carbonate-decahydrate.", price: 0, old: 0, stock: true, image: "sodium-carbonate-decahydrate" },
+  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "sodium hydroxyide", desc: "Industrial strength Sodium Hydroxide.", price: 0, old: 0, stock: true, image: "sodium-hydroxyide" },
+  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "pottasium-nitrate", desc: "Pure pottasium-nitrate.", price: 0, old: 0, stock: true, image: "pottasium-nitrate" },
+  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "copper sulphate pentahydrate", desc: "Pure copper sulphate pentahydrate.", price: 0, old: 0, stock: true, image: "copper-sulphate-pentahydrate" },
+  { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "copper carbonate", desc: "Pure copper carbonate.", price: 0, old: 0, stock: true, image: "glyceryne" },
 
   // SERVICES
   { featured: true, group: "services", categoryId: "laboratory-installations", tag: "INSTALL", off: "QUOTE", name: "Lab Installation Package", desc: "Sinks, gas taps, piping & full setup.", price: 0, old: 0, stock: true, image: "lab-installations" },
