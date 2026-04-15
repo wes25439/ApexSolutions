@@ -40,7 +40,7 @@ const products = [
   { featured: true, group: "school", categoryId: "school-dining-tables", tag: "SCHOOL", off: "-8%", name: "School Dining Table (3×8)", desc: "Easy-clean top, built for daily use.", price: 26700, old: 17500, stock: true, image: "dining" },
   { featured: true, group: "school", categoryId: "kindergarten-furniture", tag: "KIDS", off: "-20%", name: "Kindergarten Chair (Ages 3–10)", desc: "Safe edges, bright-friendly finish.", price: 2000, old: 2500, stock: true, image: "kid-chair" },
   { featured: true, group: "school", categoryId: "kindergarten-furniture", tag: "KIDS", off: "NEW", name: "Kindergarten Table (Round)", desc: "Rounded corners for safer learning spaces.", price: 0, old: 0, stock: true, image: "kid-round" },
-  { featured: true, group: "school", categoryId: "library-furniture", tag: "LIBRARY", off: "-1%", name: "Library Study Table (2 Way)", desc: "Perfect for reading bays & study areas.", price: 7400, old: 7500, stock: true, image: "twoway-study" },
+  { featured: true, group: "school", categoryId: "library-furniture", tag: "LIBRARY", off: "-1%", name: "Double decker bed", desc: "Strong metalic double decker bed", price: 12500, old: 13000, stock: true, image: "images(1)" },
 
   // LAB ITEMS
   { featured: true, group: "lab", categoryId: "lab-furniture", tag: "LAB", off: "-14%", name: "Lab Stool (Hardwood Top)", desc: "Stable base and durable seat for labs.", price: 3000, old: 3500, stock: true, image: "lab-chairs" },
@@ -53,8 +53,8 @@ const products = [
   { group: "lab", categoryId: "lab-equipment", tag: "SAFETY", off: "QUOTE", name: "Fire Extinguisher - CO₂ 5kg", desc: "5kg carbon dioxide fire extinguisher suitable for labs (Class B & E fires), wall bracket included.", price: 9800, old: 11000, stock: true, image: "fire-extinguisher" },
 
   // CHEMICALS
-  { featured: true, group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "NEW", name: "Standard Reagents Bundle", desc: "Common reagents with packaging guidance.", price: 0, old: 0, stock: true, image: "starter-lab" },
-  { featured: true, group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "Bulk Chemical Supply", desc: "Send your list — we'll quote and advise.", price: 0, old: 0, stock: true, image: "dionised-water" },
+  { featured: true, group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "NEW", name: "Sodium Carbonate Anhydrous", desc: "pure sodium carbonate anhydrous.", price: 0, old: 0, stock: true, image: "starter-lab" },
+  { featured: true, group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "QUOTE", name: "Sodium Carbonate decahydrate", desc: "pure sodium carbonate decahydrate.0", price: 0, old: 0, stock: true, image: "dionised-water" },
 
   { group: "chem", categoryId: "chemicals-reagents", tag: "CHEM", off: "NEW", name: "Sodium Bi Carbonate", desc: "High grade Sodium Bi Carbonate.", price: 0, old: 0, stock: true, image: "sodium-bycarbonate" },
   { group: "chem", categoryId: "chemical-reagents", tag: "CHEM", off: "NEW", name: "sodium carbonate decahydrate", desc: "Pure sodium-carbonate-decahydrate.", price: 0, old: 0, stock: true, image: "sodium-carbonate-decahydrate" },
