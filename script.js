@@ -40,7 +40,7 @@ const products = [
   { featured: true, group: "school", categoryId: "school-dining-tables", tag: "SCHOOL", off: "-8%", name: "School Dining Table (3×8)", desc: "Easy-clean top, built for daily use.", price: 26700, old: 17500, stock: true, image: "dining" },
   { featured: true, group: "school", categoryId: "kindergarten-furniture", tag: "KIDS", off: "-20%", name: "Kindergarten Chair (Ages 3–10)", desc: "Safe edges, bright-friendly finish.", price: 2000, old: 2500, stock: true, image: "kid-chair" },
   { featured: true, group: "school", categoryId: "kindergarten-furniture", tag: "KIDS", off: "NEW", name: "Kindergarten Table (Round)", desc: "Rounded corners for safer learning spaces.", price: 0, old: 0, stock: true, image: "kid-round" },
-  { featured: true, group: "school", categoryId: "library-furniture", tag: "LIBRARY", off: "-1%", name: "Double decker bed", desc: "Strong metalic double decker bed", price: 12500, old: 13000, stock: true, image: "images(1)" },
+  { featured: true, group: "school", categoryId: "library-furniture", tag: "LIBRARY", off: "-1%", name: "Double decker bed", desc: "Strong metalic double decker bed", price: 12500, old: 13000, stock: true, image: "metal-bed" },
 
   // LAB ITEMS
   { featured: true, group: "lab", categoryId: "lab-furniture", tag: "LAB", off: "-14%", name: "Lab Stool (Hardwood Top)", desc: "Stable base and durable seat for labs.", price: 3000, old: 3500, stock: true, image: "lab-chairs" },
